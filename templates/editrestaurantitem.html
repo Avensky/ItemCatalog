@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Restaurant</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="{{url_for('editRestaurantItem',  city_id = city_id, restaurant_id = restaurant_id )}}" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+
+					<label for="address">Address:</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="text" maxlength="250" class="form-control" name="address" value="{{item.address}}">
+					</div>
+					<label for="rating">Rating:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="rating" id="rating1" value="1" {% if item.rating == '1'%}checked{%endif%}>1
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="rating" id="rating2" value="2" {% if item.rating == '2' %}checked{%endif%}>2
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="rating" id="rating3" value="3" {% if item.rating == '3'%}checked{%endif%}>3
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="rating" id="rating4" value="4" {%if item.rating =='4'%}checked{%endif%}>4
+					  </label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="rating" id="rating5" value="5" {%if item.rating =='5'%}checked{%endif%}>5
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for('showCities')}}'>
+						<button class="btn btn-default delete" type="button">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row divider green">
+	<div class="col-md-12"></div>
+</div>
+<div class="row banner menu">
+	<div class="col-md-11 col-md-offset-1 padding-none">
+		<h1>Vegan Dining - {{ city.name }}
+		<figure class="creator">
+			<img src="{{ url_for('static', filename='blank_user.gif') }}">
+			<figcaption>City's creator's name goes here</figcaption>
+			</figure>
+		</h1>
+	</div>
+</div>
+
+<div class = 'flash'>
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+
+</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<a href="{{url_for('editCity', city_id = city.id )}}">
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit City
+				</button>
+			</a>
+			<a href="{{url_for('newRestaurantItem', city_id = city.id )}}">
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Add Restaurant
+				</button>
+			</a>
+						<a href="{{url_for('deleteCity', city_id = city.id )}}">
+				<button class="btn btn-default delete" id="delete-restaurant">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete City
+				</button>
+			</a>
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+
+	{% if items !=[] %}
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-3">
+					{% for i in items %}
+						<div class="menu-item">
+							<h3>{{i.name}}</h3>
+							{% if i.rating == '1' %}
+							<h2>&starf;&star;&star;&star;&star;</h2>
+							{% endif %}
+							{% if i.rating == '2' %}
+							<h2>&starf;&starf;&star;&star;&star;</h2>
+							{% endif %}
+							{% if i.rating == '3' %}
+							<h2>&starf;&starf;&starf;&star;&star;</h2>
+							{% endif %}
+							{% if i.rating == '4' %}
+							<h2>&starf;&starf;&starf;&starf;&star;</h2>
+							{% endif %}
+							{% if i.rating == '5' %}
+							<h2>&starf;&starf;&starf;&starf;&starf;</h2>
+							{% endif %}
+							<p>{{i.description}}</p>
+							<p class="menu-price">{{i.address}}</p>
+							<a href='{{url_for('editRestaurantItem', city_id = city.id, restaurant_id=i.id ) }}'>Edit</a> |
+							<a href='{{url_for('deleteRestaurantItem', city_id = city.id, restaurant_id=i.id ) }}'>Delete</a>
+						</div>
+					{% endfor %}
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	{% endif %}
+{% endblock %}
