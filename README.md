@@ -1,4 +1,16 @@
-Linux server/ Item Catalog
+Linux virtual machine serving flask app with mod wsgi
+Domain: https://wwww.avensky.com/
+
+Server address: 52.42.100.188
+ssh port 2200
+secret key id_rsa:
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCydAwKwvJNSig4bTPa0Wsi8yYJaLPU6na/yXCJTEWbCDPv5XByQiHisC8HZdclYhYNyPfnA0zQNmBMkA79GfBw1Sq6oGV0Pn$
+
+Test user login facebook
+Email: fpvppdriwv_1566701238@tfbnw.net
+Password: Password90!
+
 
 This project uses queries to make create, read, update, and delete from a database.
 And it also implements login and user authentication.
@@ -17,17 +29,6 @@ Flask
 Apache2
 Mod-wsgi
 certbot
-
-Test user login facebook
-Email: fpvppdriwv_1566701238@tfbnw.net
-Password: Password90!
-
-Linux virtual machine serving flask app with mod wsgi
-Server address: 52.42.100.188
-
-ssh port 2200
-secret key id_rsa:
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCydAwKwvJNSig4bTPa0Wsi8yYJaLPU6na/yXCJTEWbCDPv5XByQiHisC8HZdclYhYNyPfnA0zQNmBMkA79GfBw1Sq6oGV0PnIdmCKvUJcJqKWbt5u8f4aTT+D13vZbfIfm6bwqDI9YqHI8CVwUSTEPLvJo0huvwtghCMUX+KvQLh12+CRG052nGXjC7nnlC4IXkJWTRrAFk4apOaWLOzd3nvPImiEVkmJo9Kn/rEKdSExayi2TsrPJOMjDK5MX1uEUgY2dk84nrywodB8s1irMCt0OKGpwt97uwMaMOA19bHPIwfjTWoH92pI2rTG1VdPgLPLDgpoxZUW52KbQ1dxz uriel@DESKTOP-F4V9OGN
 
 Set up Amazon Lightsail instance
 Select Linux/Unix Ubuntu 16 LTS
