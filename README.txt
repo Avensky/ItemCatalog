@@ -129,6 +129,7 @@ Configure Apache, mod-wsgi
 			LogLevel warn
 			CustomLog ${APACHE_LOG_DIR}/access.log combined
 		</VirtualHost>
+	sudo a2ensite ItemCatalog
 
 	sudo nano /var/www/html/ItemCatalog/myapp.wsgi
 		#!/usr/bin/python
