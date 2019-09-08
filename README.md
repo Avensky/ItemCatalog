@@ -35,6 +35,7 @@ Go to Networking tab and addn
 	custom   tcp   2200
 	custom   tcp   5000
 	custom   udp   123
+	html     tcp   443  
 
 Complete Step by Step process to setting up the server
 
@@ -52,6 +53,7 @@ sudo ufw allow ssh
 sudo ufw allow 2200/tcp
 sudo ufw allow www
 sudo ufw allow ntp
+sudo ufw allow https
 sudo ufw enable
 
 create user
@@ -162,6 +164,14 @@ Edit database_setup.py, __init__.py and change
 
 		with app.open_resource('client_secrets.json') as f:
 			CLIENT_ID = json.load(f)['web']['client_id']
+		
+		add full path to json location
+	   	app_id = json.loads(
+        		open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_id']
+
+		app_secret = json.loads(
+        		open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_secret']
+
 
 		change end to this
 		if __name__ == '__main__':
