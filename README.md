@@ -166,11 +166,11 @@ Edit database_setup.py, __init__.py and change
 			CLIENT_ID = json.load(f)['web']['client_id']
 		
 		add full path to json location
-	   	app_id = json.loads(
-        		open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_id']
+		app_id = json.loads(
+			open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_id']
 
 		app_secret = json.loads(
-        		open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_secret']
+			open('/var/www/html/ItemCatalog/fb_client_secrets.json', 'r').read())['web']['app_secret']
 
 
 		change end to this
