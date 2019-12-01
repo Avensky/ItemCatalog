@@ -21,7 +21,7 @@
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 <script>
-function (authResult) {
+function signInCallback(authResult) {
   if (authResult['code']) {
     // Hide the sign-in button now that the user is authorized
     $('#signinButton').attr('style', 'display: none');
@@ -59,7 +59,7 @@ function (authResult) {
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use version 2.8
+    version    : 'v5.0' // use version 2.8
   });
 
   };
@@ -79,8 +79,11 @@ function (authResult) {
     var access_token = FB.getAuthResponse()['accessToken'];
     console.log(access_token)
     console.log('Welcome!  Fetching your information.... ');
+
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
+
+
      $.ajax({
       type: 'POST',
       url: '/fbconnect?state={{STATE}}',

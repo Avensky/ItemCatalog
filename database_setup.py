@@ -60,6 +60,6 @@ class RestaurantItem(Base):
         }
 
 
-engine = create_engine('postgresql://catalog:password@localhost/catalog')
+engine = create_engine('sqlite:///webdev.db')
 
 Base.metadata.create_all(engine)
